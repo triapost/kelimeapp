@@ -27,12 +27,15 @@ const Login = () => {
     //Api service
     login(email, password)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("token", res.data.access_token);
         history.push("/");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error({
+          title: "HATA",
+          message: "Email yada Şifreniz Hatalıdır",
+          position: "topRight",
+        });
       });
   };
   return (
