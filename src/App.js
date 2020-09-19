@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Redirect } from "react-router-dom";
+import AuthRoute from "./components/AuthRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import { Home, Login, Register } from "./pages";
 
 const App = () => {
@@ -7,9 +9,9 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <PrivateRoute path="/" exact component={Home} />
+          <AuthRoute path="/login" component={Login} />
+          <AuthRoute path="/register" component={Register} />
           <Redirect to="/" />
         </Switch>
       </BrowserRouter>
