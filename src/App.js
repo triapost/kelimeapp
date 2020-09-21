@@ -8,6 +8,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+      {/* sadsadas */}
         <Switch>
           <PrivateRoute path="/" exact component={Home} />
           <AuthRoute path="/login" component={Login} />
